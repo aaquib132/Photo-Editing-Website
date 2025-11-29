@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Editing</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.5/croppie.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.5/croppie.min.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="navbar">
+                <div class="left">
+                    <button class="navbutton">File</button>
+                    <button class="navbutton">Edit</button>
+                    <button class="navbutton">Layer</button>
+                    <button class="navbutton">Veiw</button>
+                </div>
+                <div class="right">
+                    <button class="navbutton">Help</button>
+                    <button class="navbutton">Account</button>
+                    <button class="navbutton">Logout</button>
+                </div>
+            </div>
+        </nav>
+
+    </header>
+
+
+    <div class="sidebar-container disabled">
+        <aside>
+            <div class="sidebar">
+                <div class="upper">
+                    <p class="side-text">Fliter</p>
+                    <button class="filterbutton active" data-filter id="brightness">Brightness</button>
+                    <button class="filterbutton" data-filter id="saturation">Saturation</button>
+                    <button class="filterbutton" data-filter id="inversion">Inversion</button>
+                    <button class="filterbutton" data-filter id="grayscale">Grayscale</button>
+
+                </div>
+
+                <div class="range">
+                <div class="filter-info">
+                    <p class="name">Brightness</p>
+                    <p class="value">100%</p>
+                </div>    
+                    <input type="range" min="0" max="200" value="100" class="slider" id="filter-slider">
+                </div>
+
+                <div class="rotate">
+                    <p class="side-text">Rotate & Flip</p>
+                    <button class="filterbutton" id="left"><i class='bx bx-rotate-left' ></i></button>
+                    <button class="filterbutton" id="right"><i class='bx bx-rotate-right' ></i></button>
+                    <button class="filterbutton" id="horizontal"><i class='bx bx-reflect-horizontal' ></i></button>
+                    <button class="filterbutton" id="vertical"><i class='bx bx-reflect-vertical' ></i></button>
+                </div>
+                
+                <div class="crop">
+                    <p class="side-text">Crop</p>
+                    <button class="crop-btn"><i class='bx bx-crop' ></i></button>
+                </div>
+
+                <div class="removebg">
+                <p class="bgremove">Background Remove</p>
+                <button class="removebg-btn"><i class='bx bx-eraser'></i></button>
+                </div>
+            </div>
+            <button class="resetbtn">Reset Filters</button>
+        </aside>
+
+        <section>
+            <div class="image-container">
+                <div id="croppie-popup">
+                <div id="croppie-box"></div>
+                <button id="apply-crop">Apply Crop</button>
+                <button id="cancel-crop">Cancel</button>
+                </div>
+                <div id="crop-area"></div>
+                <img id="originalImage" style="display:none;">
+                <img id="outputImg" style="display:none;">
+                <img src="image.png" alt="Photo" id="image">
+            </div>
+            <div class="container">
+                <input type="file" class="fileInput" accept="image/*" hidden>
+            <button class="choosebtn">CHOOSE IMAGE</button>
+            <button class="savebtn">SAVE IMAGE</button>
+            </div>
+        </section>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
